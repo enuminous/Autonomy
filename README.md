@@ -7,6 +7,10 @@ A principal exercises discretion within a declared charter, can decline an actio
 
 The first question is practical: **can someone independent of the decider obtain and implement a justified correction?** A decider's own explanation is useful evidence, but is not independent assurance. Different keys and intact hashes do not establish different controlling interests.
 
+## Interactive lab
+
+Open [index.html](index.html) locally in a browser to explore authority, review independence and observable correction. Six presets, live conditional findings, a reversible mock resource and downloadable case JSON run entirely in the browser. This policy illustration does not perform the Python verifier's signature checks or establish live assurance.
+
 ## What is here
 
 | Read | Purpose |
@@ -25,7 +29,7 @@ The first question is practical: **can someone independent of the decider obtain
 
 ## Run the reference case
 
-Python 3.12 is the tested local version. Use an isolated environment:
+Python 3.12 is the tested local version. Node.js 18+ is also required for the browser-model parity tests (the HTML itself needs only a browser). Use an isolated environment:
 
 ```sh
 python -m venv .venv
@@ -51,6 +55,8 @@ Expected result:
 **Every demo role is controlled by one process.** This is a test of signature and record consistency plus a local state transition. The verifier does not discover institutional independence, query a production endpoint, verify external consent, or establish trusted wall-clock time. Its technical PASS is never a principal certification. Supplying no registry returns UNRESOLVED (exit 2); inconsistent evidence returns FAIL (exit 1).
 
 `autonomy.policy` supplies proposed hard gates: unavailable authority, rights conflict, unverified required review, or an unreleased artifact cannot be overcome by a high utility score. An eligible action remains discretionary. These gates consume supplied findings; they do not establish the truth of those findings.
+
+Browser addition: 43 tests now pass, including cross-language checks over 1,080 combinations of route and policy conditions. Browser interaction checks cover successful reversal, paper-only failure, absent-route blocking and JSON download.
 
 ## Status and scope
 
