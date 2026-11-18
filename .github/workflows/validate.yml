@@ -1,0 +1,32 @@
+name: Validate reference model
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install dependency
+        run: python3 -m pip install -r requirements.txt
+      - name: Tests and documentation links
+        run: |
+          python3 -m unittest discover -s tests -v
+          python3 scripts/check_docs.py
+      - name: Synthetic evidence and scoped verification
+        run: |
+          python3 -m autonomy demo --output artifacts
+          python3 -m autonomy verify artifacts/bundle.json --registry artifacts/demo-registry.json
+          python3 - <<'PY'
+          import subprocess
+          result = subprocess.run(['python3', '-m', 'autonomy', 'verify', 'artifacts/bundle.json'])
+          assert result.returncode == 2, 'Missing trust registry must remain unresolved'
+          PY
+      - name: Preserve synthetic run evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AUT-001-synthetic-evidence
+          path: artifacts/
+          retention-days: 14
