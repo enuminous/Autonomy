@@ -1,5 +1,7 @@
 # Autonomy
 
+[EFMW research directory](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md#zoo-index-and-agents) · [AUT-001 reversal test](docs/AUT-001.md)
+
 **EFMW principals framework for sovereign autonomous agents**  
 Monolithic · Research specification and executable reference model · v0.1.0
 
